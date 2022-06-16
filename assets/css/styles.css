@@ -1,0 +1,77 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #F7F5F2;
+}
+
+/* ===================== home page ====================== */
+
+.navbar {
+    padding: 20px 10px;
+    background-color: #413F42;
+}
+.navbar .logo {
+    color: #EB5353;
+}
+.navbar .brand {
+    color: #F32424;
+}
+.navbar h1 {
+    color: #fff;
+}
+
+.cto-btns {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.login, .register {
+    display: inline-block;
+    width: 150px;
+    padding: 10px 0;
+    margin-left: 10px;
+    border-radius: 5px;
+    color: #fff;
+    background-color:#A760FF;
+}
+
+
+/* ===================== form styles ====================== */
+
+form .form {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #92B4EC;
+    margin: 100px auto;
+    border-radius: 10px;
+}
+
+.input-field, .form-btn {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.form-btn {
+    background-color: #47B5FF;
+}
