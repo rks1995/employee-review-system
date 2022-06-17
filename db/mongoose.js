@@ -1,7 +1,7 @@
+require('dotenv').config()
 const mongoose = require('mongoose')
 
-const url =
-  'mongodb+srv://savio:1234@nodeexpressprojects.vq35t.mongodb.net/14-Employee?retryWrites=true&w=majority'
+const url = process.env.MONGO_URI
 
 const db = mongoose
   .connect(url)

@@ -1,18 +1,18 @@
 const express = require('express')
 const router = express.Router()
 
-const { signin, signup, createSession, loginUser } = require('../controllers')
+const {
+  homeController,
+  signin,
+  signup,
+  createSession,
+  loginUser,
+  destroySession,
+} = require('../controllers')
 
-router.get('/', (req, res) => {
-  if (req.cookies.tokenKey) {
-    return res.redirect('/user/dashboard')
-  }
-  res.render('home', {
-    title: 'Home',
-  })
-})
-
+router.route('/').get(homeController)
 router.route('/login').get(signin).post(loginUser)
+router.route('/logout').get(destroySession)
 router.route('/register').get(signup).post(createSession)
 
 router.use('/user', require('./userRoutes'))

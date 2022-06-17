@@ -1,5 +1,15 @@
+require('dotenv').config()
 const Users = require('../models/User')
 const jwt = require('jsonwebtoken')
+
+const homeController = (req, res) => {
+  if (req.cookies.tokenKey) {
+    return res.redirect('/user/dashboard')
+  }
+  res.render('home', {
+    title: 'Home',
+  })
+}
 
 const signin = (req, res) => {
   if (req.cookies.tokenKey) {
@@ -52,7 +62,7 @@ const loginUser = async (req, res) => {
     }
 
     const { id, name, isAdmin } = user
-    const token = jwt.sign({ id, name, isAdmin }, 'somesecret', {
+    const token = jwt.sign({ id, name, isAdmin }, process.env.JWT_SECRET, {
       expiresIn: '1h',
     })
 
@@ -61,9 +71,17 @@ const loginUser = async (req, res) => {
   } catch (error) {}
 }
 
+const destroySession = (req, res) => {
+  console.log('loging out...')
+  res.clearCookie('tokenKey')
+  res.redirect('/login')
+}
+
 module.exports = {
+  homeController,
   signin,
   signup,
   createSession,
   loginUser,
+  destroySession,
 }

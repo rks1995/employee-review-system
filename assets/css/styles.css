@@ -20,9 +20,30 @@ body {
 /* ===================== home page ====================== */
 
 .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 20px 10px;
     background-color: #413F42;
 }
+.user .user-name {
+    text-transform: capitalize;
+    color:#fff;
+}
+
+.user-name {
+    display: flex;
+    align-items: center;
+}
+.user-name .log-out-btn {
+    padding: 10px;
+    margin-left: 20px;
+    background-color: #A760FF;
+    font-size: .75rem;
+    border-radius: 3px;
+    color: #fff;
+}
+
 .navbar .logo {
     color: #EB5353;
 }
