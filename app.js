@@ -4,8 +4,12 @@ const homeRoutes = require('./routes')
 const app = express()
 const port = process.env.PORT || 5000
 const db = require('./db/mongoose')
+
 // use static files
 app.use(express.static('assets'))
+
+// get information from form data into request body
+app.use(express.urlencoded({ extended: true }))
 
 // set up view engine
 app.set('view engine', 'ejs')
