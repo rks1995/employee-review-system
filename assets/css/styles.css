@@ -75,3 +75,14 @@ form .form {
 .form-btn {
     background-color: #47B5FF;
 }
+
+/* ===================== Error page ====================== */
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

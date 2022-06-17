@@ -1,12 +1,20 @@
 const Users = require('../models/User')
+const jwt = require('jsonwebtoken')
 
 const signin = (req, res) => {
+  if (req.cookies.tokenKey) {
+    return res.redirect('/user/dashboard')
+  }
+
   res.render('signin', {
     title: 'Sign In',
   })
 }
 
 const signup = (req, res) => {
+  if (req.cookies.tokenKey) {
+    return res.redirect('/user/dashboard')
+  }
   res.render('signup', {
     title: 'Sign Up',
   })
@@ -43,6 +51,12 @@ const loginUser = async (req, res) => {
       return res.redirect('/login')
     }
 
+    const { id, name, isAdmin } = user
+    const token = jwt.sign({ id, name, isAdmin }, 'somesecret', {
+      expiresIn: '1h',
+    })
+
+    res.cookie('tokenKey', token)
     res.redirect('/user/dashboard')
   } catch (error) {}
 }

@@ -4,6 +4,9 @@ const router = express.Router()
 const { signin, signup, createSession, loginUser } = require('../controllers')
 
 router.get('/', (req, res) => {
+  if (req.cookies.tokenKey) {
+    return res.redirect('/user/dashboard')
+  }
   res.render('home', {
     title: 'Home',
   })
