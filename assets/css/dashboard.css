@@ -8,11 +8,13 @@
 
 .tabs {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .tabs .tab-btn {
     padding: 10px;
-    margin: 0 50px;
     color: #444;
     border: 1px solid #6CC4A1;
 }

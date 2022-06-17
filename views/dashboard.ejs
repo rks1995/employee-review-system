@@ -1,15 +1,34 @@
-
 <!-- <% if(locals.user) {%> 
     <h1>Welcome to the dashboard <%= user.name %></h1>
 <% } %> -->
-<link rel="stylesheet" href="/css/dashboard.css">
+<link rel="stylesheet" href="/css/dashboard.css" />
 
 <div class="dashboard-container">
-    <div class="tabs">
-    <a href="" id="employee" class="tab-btn active-tab">Employees</a>
-    <a href="" id="add-employee" class="tab-btn">Update Employee</a>
-    <a href="" id="assign-task" class="tab-btn">Assign Task</a>
-</div>
+  <div class="tabs">
+      <% if(locals.action === "list") {%> 
+         <a href="/user/dashboard?action=list" id="employee" class="tab-btn active-tab">Employees</a>
+      <% } else { %> 
+        <a href="/user/dashboard?action=list" id="employee" class="tab-btn">Employees</a>
+      <% } %>
+      <% if(locals.action === "add") {%>
+      <a href="/user/dashboard?action=add" id="add-employee" class="tab-btn active-tab">Update Employee</a>
+      <% } else { %>
+      <a href="/user/dashboard?action=add" id="add-employee" class="tab-btn">Update Employee</a>
+      <% } %>
+      <% if(locals.action === "assign") {%>
+      <a href="/user/dashboard?action=assign" id="assign-task" class="tab-btn active-tab">Assign Task</a>
+      <% } else { %>
+      <a href="/user/dashboard?action=assign" id="assign-task" class="tab-btn">Assign Task</a>
+      <% } %>
+  </div>
+
+  <% if(locals.action === "list" || locals.action === "") { %> 
+    <%- include("partials/_list"); %>
+  <% } else if(locals.action === "add") { %> 
+    <%- include("partials/_update"); %>
+  <% } else if(locals.action === "assign") { %> 
+     <%- include("partials/_assign"); %>
+  <% } %>
 </div>
 
 <script src="/js/script.js"></script>

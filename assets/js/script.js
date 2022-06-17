@@ -2,7 +2,7 @@
   let tabButton = document.querySelectorAll('.tab-btn')
 
   const handleActiveBtn = (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     let element = document.querySelector('.active-tab')
     if (element === e.target) return
     element.classList.remove('active-tab')

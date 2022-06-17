@@ -14,16 +14,16 @@ app.use(express.static('assets'))
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 
-// extract styles from different view
-app.set('layout extractStyles', true)
-app.set('layout extractScripts', true)
-
 // set up view engine
 app.set('view engine', 'ejs')
 app.set('views', './views')
 
 // ejs layouts
 app.use(ejsLayouts)
+
+// extract styles from different view
+app.set('layout extractStyles', true)
+app.set('layout extractScripts', true)
 
 app.use('/', homeRoutes)
 
