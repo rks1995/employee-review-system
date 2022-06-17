@@ -1,5 +1,15 @@
 
-<% if(locals.user) {%> 
+<!-- <% if(locals.user) {%> 
     <h1>Welcome to the dashboard <%= user.name %></h1>
-<% } %>
+<% } %> -->
+<link rel="stylesheet" href="/css/dashboard.css">
 
+<div class="dashboard-container">
+    <div class="tabs">
+    <a href="" id="employee" class="tab-btn active-tab">Employees</a>
+    <a href="" id="add-employee" class="tab-btn">Update Employee</a>
+    <a href="" id="assign-task" class="tab-btn">Assign Task</a>
+</div>
+</div>
+
+<script src="/js/script.js"></script>

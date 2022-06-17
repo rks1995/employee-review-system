@@ -66,7 +66,9 @@ const loginUser = async (req, res) => {
       expiresIn: '1h',
     })
 
-    res.cookie('tokenKey', token)
+    res.cookie('tokenKey', token, {
+      expires: 0,
+    })
     res.redirect('/user/dashboard')
   } catch (error) {}
 }

@@ -1,0 +1,27 @@
+
+/* ===================== dashboard style admin view ==================== */
+
+.dashboard-container {
+    width: 50%;
+    margin: 100px auto;
+}
+
+.tabs {
+    width: 100%;
+}
+
+.tabs .tab-btn {
+    padding: 10px;
+    margin: 0 50px;
+    color: #444;
+    border: 1px solid #6CC4A1;
+}
+
+.tab-btn:hover {
+    background-color:#6CC4A1;
+    transition: .3s ease-in-out;
+}
+
+.active-tab {
+    background-color:#6CC4A1;
+}

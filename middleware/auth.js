@@ -13,6 +13,7 @@ const authMiddleware = async (req, res, next) => {
     req.user = decode
     next()
   } catch (error) {
+    res.clearCookie('tokenKey')
     return res.redirect('/login')
   }
 }
