@@ -2,11 +2,12 @@
 <% if(locals.all_users.length > 0) { %> 
     
     <% for(let i=0; i < all_users.length; i++) {%>
-        <% const {name, email, isAdmin} = all_users[i] %> 
+        <% const {name, email, password, isAdmin} = all_users[i] %> 
         <% if(locals.user.name !== name) {%>
             <li class="list">
                 <p style="text-transform: capitalize;"><%= name %></p>
                 <p><%= email %></p>
+                <p><%= password %></p>
                 <% if(!isAdmin) { %> 
                     <p>Employee</p>
                 <% } else { %> 

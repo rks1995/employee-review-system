@@ -14,7 +14,7 @@ ul li {
 
 body {
     font-family: sans-serif;
-    background-color: #fff;
+    background-color: #F9F9F9;
 }
 
 /* ===================== home page ====================== */
@@ -28,7 +28,7 @@ body {
 }
 .user .user-name {
     text-transform: capitalize;
-    color:#fff;
+    color:#A0D995;
 }
 
 .user-name {
@@ -65,8 +65,8 @@ body {
     padding: 10px 0;
     margin-left: 10px;
     border-radius: 5px;
-    color: #fff;
-    background-color:#A760FF;
+    color: #53BF9D;
+    background-color:#1A3C40;
 }
 
 
@@ -79,10 +79,22 @@ form .form {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: #92B4EC;
+    background-color: #1A3C40;
     margin: 100px auto;
     border-radius: 10px;
 }
+
+.form h1 {
+    color: #fff;
+}
+ .form i {
+     color: #A0D995;
+ }
+
+ .form p > a {
+     color: #A0D995;
+ }
+ 
 
 .input-field, .form-btn {
     width: 100%;
@@ -94,7 +106,7 @@ form .form {
 }
 
 .form-btn {
-    background-color: #47B5FF;
+    background-color: #53BF9D;
 }
 
 /* ===================== Error page ====================== */

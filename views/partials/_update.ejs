@@ -1,1 +1,17 @@
-<h2>Update</h2>
+<form class="form" action="/user/add" method="post">
+    <div class="left">
+        <input class="input-field" type="text" name="name" placeholder="name">
+        <input class="input-field" type="email" name="email" placeholder="email">
+    </div>
+    <div class="right">
+        <input class="input-field" type="password" name="password" placeholder="password">
+        <div class="input-field label">
+            <label for="admin" style="color: #1A3C40;">Admin</label>
+            <select name="admin" id="admin">
+                <option value="true">True</option>
+                <option value="false">False</option>
+            </select>
+        </div>
+    </div>
+    <button type="submit" class="save-form-btn">Save</button>
+</form>

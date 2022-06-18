@@ -14,8 +14,7 @@ router
   .get(authMiddleware, dashboardController)
   .get(listEmployees)
 
-// router.route('/list').get(listEmployees)
-// router.route('/add').get(addEmployee)
+router.route('/add').post(addEmployee)
 // router.route('/assign').get(assignTask)
 
 module.exports = router
