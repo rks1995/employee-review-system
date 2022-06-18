@@ -2,7 +2,7 @@
 <% if(locals.all_users.length > 0) { %> 
     
     <% for(let i=0; i < all_users.length; i++) {%>
-        <% const {name, email, password, isAdmin} = all_users[i] %> 
+        <% const {id, name, email, password, isAdmin} = all_users[i] %> 
         <% if(locals.user.name !== name) {%>
             <li class="list">
                 <p style="text-transform: capitalize;"><%= name %></p>
@@ -14,7 +14,7 @@
                     <p>Admin</p>
                 <% } %> 
                 <div class="actions-btn">
-                    <a href="/" class="edit-btn">
+                    <a href="/user/dashboard?action=add&id=<%=id%>" class="edit-btn">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </a>
                     <a href="/" class="delete-btn">

@@ -1,15 +1,19 @@
 const Users = require('../models/User')
 
 const dashboardController = async (req, res) => {
-  const { action } = req.query
+  const { action, id } = req.query
+  // this user is coming from cookies
   const user = req.user
+  let editUser = {}
   try {
     const all_users = await Users.find({})
+    if (id) editUser = await Users.findById(id)
     res.render('dashboard', {
       title: 'Dashboard',
       all_users: all_users,
       user: user,
       action,
+      editUser: editUser,
     })
   } catch (error) {
     res.status(500).json({ message: 'Internal Server Error' })
@@ -21,15 +25,24 @@ const listEmployees = async (req, res) => {
   res.redirect('/user/dashboard')
 }
 
-// ================ add employee ===================== //
+// ================ add & update employee ===================== //
 const addEmployee = async (req, res) => {
   const { name, email, password, admin } = req.body
   try {
     const user = await Users.findOne({ email })
     if (user) {
-      return res.status(401).json({ message: 'email already exist!' })
+      if (!user.id) {
+        return res.status(401).json({ message: 'email already exist!' })
+      }
+      //update the user
+      await Users.findByIdAndUpdate(user.id, {
+        name,
+        email,
+        password,
+        isAdmin: admin,
+      })
+      return res.redirect('back')
     }
-
     await Users.create({
       name,
       email,
@@ -41,7 +54,6 @@ const addEmployee = async (req, res) => {
     res.status(500).json({ message: 'Internal Server Error' })
   }
 }
-// ================ update employee details ===================== //
 
 // ================ delete employee details ===================== //
 const assignTask = async (req, res) => {
