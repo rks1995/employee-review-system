@@ -1,12 +1,19 @@
+const Users = require('../models/User')
+
 const dashboardController = async (req, res) => {
-  console.log(req.query)
   const { action } = req.query
   const user = req.user
-  res.render('dashboard', {
-    title: 'Dashboard',
-    user: user,
-    action,
-  })
+  try {
+    const all_users = await Users.find({})
+    res.render('dashboard', {
+      title: 'Dashboard',
+      all_users: all_users,
+      user: user,
+      action,
+    })
+  } catch (error) {
+    res.status(500).json({ message: 'Internal Server Error' })
+  }
 }
 
 const listEmployees = async (req, res) => {

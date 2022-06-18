@@ -27,3 +27,34 @@
 .active-tab {
     background-color:#6CC4A1;
 }
+
+/* ==================== employee list ===================== */
+.list-container {
+    width: 100%;
+    margin-top: 30px;
+}
+.col {
+    padding: 20px;
+    font-weight: bold;
+}
+.col, .list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list {
+    padding: 20px;
+    margin: 10px 0;
+    color: #fff;
+    background-color: #005555;
+}
+
+.edit-btn {
+    color: #fff;
+    margin-right: 5px;
+}
+
+.delete-btn i {
+    color: #F94C66;
+}

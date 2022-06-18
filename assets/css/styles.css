@@ -14,7 +14,7 @@ ul li {
 
 body {
     font-family: sans-serif;
-    background-color: #F7F5F2;
+    background-color: #fff;
 }
 
 /* ===================== home page ====================== */
@@ -24,7 +24,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 10px;
-    background-color: #413F42;
+    background-color: #1A3C40;
 }
 .user .user-name {
     text-transform: capitalize;

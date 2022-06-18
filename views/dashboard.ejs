@@ -4,8 +4,9 @@
 <link rel="stylesheet" href="/css/dashboard.css" />
 
 <div class="dashboard-container">
+    <!-- admin view -->
   <div class="tabs">
-      <% if(locals.action === "list") {%> 
+      <% if(locals.action === "list" || locals.action === undefined) {%>
          <a href="/user/dashboard?action=list" id="employee" class="tab-btn active-tab">Employees</a>
       <% } else { %> 
         <a href="/user/dashboard?action=list" id="employee" class="tab-btn">Employees</a>
@@ -22,8 +23,18 @@
       <% } %>
   </div>
 
-  <% if(locals.action === "list" || locals.action === "") { %> 
-    <%- include("partials/_list"); %>
+  <% if(locals.action === "list" || locals.action === undefined) { %>
+    <ul>
+        <li class="list-container">
+            <li class="col">
+                <p>Name</p>
+                <p>Email</p>
+                <p>Role</p>
+                <p>Action</p>
+            </li>
+            <%- include("partials/_list"); %>
+        </li>
+    </ul> 
   <% } else if(locals.action === "add") { %> 
     <%- include("partials/_update"); %>
   <% } else if(locals.action === "assign") { %> 
