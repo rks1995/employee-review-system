@@ -56,6 +56,16 @@ const addEmployee = async (req, res) => {
 }
 
 // ================ delete employee details ===================== //
+
+const deleteEmployee = async (req, res) => {
+  try {
+    const user = await Users.findByIdAndDelete(req.params.id)
+    res.redirect('back')
+  } catch (error) {
+    res.status(500).json({ message: 'Internal Server Error' })
+  }
+}
+
 const assignTask = async (req, res) => {
   res.redirect('/user/dashboard')
 }
@@ -65,4 +75,5 @@ module.exports = {
   listEmployees,
   addEmployee,
   assignTask,
+  deleteEmployee,
 }
