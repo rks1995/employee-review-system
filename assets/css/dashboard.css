@@ -98,10 +98,12 @@ select#admin {
 
 .assign-task-container {
     width: 100%;
-    margin-top: 30px;
+    margin-top: 60px;
     display: flex;
     justify-content: space-between;
+    gap: 10px;
     align-items: center;
+    position: relative;
 }
 
 .assign-input-field {
@@ -115,17 +117,23 @@ select#admin {
     padding: 10px;
 }
 
-.assign-input-field a {
+.assign-input-field a, .list-name {
     color: #005555;
 }
 
-.list-users {
+.list-users-to, .list-users-for {
     width: 100%;
     border: 1px solid #005555;
+    position: absolute;
+    top: 40px;
 }
 
-.list-users .list-name {
-    /* display: none; */
+.assign-task-container .left, .assign-task-container .right {
+    position: relative;
+    padding: 0;
+}
+
+.list-name {
     text-align: center;
     padding: 10px;
     border-bottom: 1px solid #6CC4A1;
@@ -136,4 +144,8 @@ select#admin {
     color: #6CC4A1;
     cursor: pointer;
     transition: .3s ease-in;
+}
+
+.hide-dropdown {
+    display: none;
 }

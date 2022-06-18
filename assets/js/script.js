@@ -1,15 +1,18 @@
 {
-  let tabButton = document.querySelectorAll('.tab-btn')
+  let assignBtn = document.querySelectorAll('.dropdown')
 
-  const handleActiveBtn = (e) => {
-    // e.preventDefault()
-    let element = document.querySelector('.active-tab')
-    if (element === e.target) return
-    element.classList.remove('active-tab')
-    e.target.classList.add('active-tab')
+  const handleDropdown = (e) => {
+    e.preventDefault()
+    if (e.target.classList.contains('assign-to')) {
+      let list_user_to = document.querySelector('.list-users-to')
+      list_user_to.classList.toggle('hide-dropdown')
+    } else {
+      let list_user_for = document.querySelector('.list-users-for')
+      list_user_for.classList.toggle('hide-dropdown')
+    }
   }
 
-  tabButton.forEach((btn) => {
-    btn.addEventListener('click', handleActiveBtn)
+  assignBtn.forEach((btn) => {
+    btn.addEventListener('click', handleDropdown)
   })
 }

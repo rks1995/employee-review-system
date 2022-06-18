@@ -1,22 +1,33 @@
 
 <div class="assign-task-container">
     <div class="left">
-        <p class="assign-input-field">Assign To | <a href=""><i class="fa-solid fa-caret-down"></i></a></p>
-        <div class="list-users">
+        <p class="assign-input-field">Assign To | <a href="/user/listdropdown" class="dropdown"><i class="fa-solid fa-caret-down assign-to"></i></a></p>
+        <div class="list-users-to hide-dropdown">
             <ul>
-                <li class="list-name">name1</li>
-                <li class="list-name">name2</li>
-                <li class="list-name">name3</li>
+                <% for(let i=0; i<locals.all_users.length; i++) {%> 
+                    <% const {name} = locals.all_users[i] %>
+                    <% if(locals.user.name !== name) { %>
+                        <a href="/user/dashboard?name=<%= name %>">
+                            <li class="list-name"><%= name %></li>
+                        </a> 
+                    <%}%>
+                <%}%>
             </ul>
         </div>
     </div>
     <div class="right">
-        <p class="assign-input-field">Assign For | <a href=""><i class="fa-solid fa-caret-down"></i></a></p>
-        <div class="list-users">
+        <p class="assign-input-field">Assign For | <a href="/user/listdropdown" class="dropdown"><i
+                    class="fa-solid fa-caret-down assign-for"></i></a></p>
+        <div class="list-users-for hide-dropdown">
             <ul>
-                <li class="list-name">name1</li>
-                <li class="list-name">name2</li>
-                <li class="list-name">name3</li>
+                <% for(let i=0; i<locals.all_users.length; i++) {%>
+                    <% const {name} = locals.all_users[i] %>
+                    <% if(locals.user.name !== name) { %>
+                        <a href="/user/dashboard?name=<%= name %>">
+                            <li class="list-name"><%= name %></li>
+                        </a>
+                    <%}%>
+                <%}%>
             </ul>
         </div>
     </div>

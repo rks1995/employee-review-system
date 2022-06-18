@@ -56,11 +56,19 @@ const addEmployee = async (req, res) => {
 }
 
 // ================ delete employee details ===================== //
-
 const deleteEmployee = async (req, res) => {
   try {
     const user = await Users.findByIdAndDelete(req.params.id)
     res.redirect('back')
+  } catch (error) {
+    res.status(500).json({ message: 'Internal Server Error' })
+  }
+}
+
+const listDropdown = async (req, res) => {
+  try {
+    const users = await Users.find({})
+    return res.status(200).json({ message: 'success', data: users })
   } catch (error) {
     res.status(500).json({ message: 'Internal Server Error' })
   }
@@ -76,4 +84,5 @@ module.exports = {
   addEmployee,
   assignTask,
   deleteEmployee,
+  listDropdown,
 }
