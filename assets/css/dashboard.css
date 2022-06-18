@@ -85,11 +85,55 @@ select#admin {
     border: 1px solid gray;
 }
 
-.save-form-btn {
+.save-form-btn, .assign-btn {
     padding: 10px;
     cursor: pointer;
     color: #A0D995;
     background-color: teal;
     border: none;
     outline: none;
+}
+
+/* ==================== assign tab ===================== */
+
+.assign-task-container {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.assign-input-field {
+    width: 100%;
+    color: gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #005555;
+    box-shadow: 1px 1px 10px #c3c3c3;
+    padding: 10px;
+}
+
+.assign-input-field a {
+    color: #005555;
+}
+
+.list-users {
+    width: 100%;
+    border: 1px solid #005555;
+}
+
+.list-users .list-name {
+    /* display: none; */
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #6CC4A1;
+}
+
+.list-name:hover {
+    background-color: #005555;
+    color: #6CC4A1;
+    cursor: pointer;
+    transition: .3s ease-in;
 }
