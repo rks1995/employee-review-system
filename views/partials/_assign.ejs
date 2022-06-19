@@ -1,31 +1,29 @@
 
 <div class="assign-task-container">
     <div class="left">
-        <p class="assign-input-field">Assign To | <a href="/user/listdropdown" class="dropdown"><i class="fa-solid fa-caret-down assign-to"></i></a></p>
+        <p class="assign-input-field"><span id="left-para">Assign To | </span><a href="/user/listdropdown"
+                class="dropdown"><i class="fa-solid fa-caret-down assign-to"></i></a></p>
         <div class="list-users-to hide-dropdown">
             <ul>
                 <% for(let i=0; i<locals.all_users.length; i++) {%> 
                     <% const {name} = locals.all_users[i] %>
                     <% if(locals.user.name !== name) { %>
-                        <a href="/user/dashboard?name=<%= name %>">
-                            <li class="list-name"><%= name %></li>
-                        </a> 
+                        <li class="list-name left_name"><%= name %></li>
                     <%}%>
                 <%}%>
             </ul>
         </div>
     </div>
     <div class="right">
-        <p class="assign-input-field">Assign For | <a href="/user/listdropdown" class="dropdown"><i
-                    class="fa-solid fa-caret-down assign-for"></i></a></p>
+        <p class="assign-input-field"><span id="right-para">Assign For |</span><a href="/user/listdropdown"
+        class="dropdown"><i
+        class="fa-solid fa-caret-down assign-for"></i></a></p>
         <div class="list-users-for hide-dropdown">
             <ul>
                 <% for(let i=0; i<locals.all_users.length; i++) {%>
                     <% const {name} = locals.all_users[i] %>
                     <% if(locals.user.name !== name) { %>
-                        <a href="/user/dashboard?name=<%= name %>">
-                            <li class="list-name"><%= name %></li>
-                        </a>
+                        <li class="list-name right_name"><%= name %></li>
                     <%}%>
                 <%}%>
             </ul>

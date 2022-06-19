@@ -1,7 +1,7 @@
 const Users = require('../models/User')
 
 const dashboardController = async (req, res) => {
-  const { action, id } = req.query
+  const { action, id, l_name, r_name } = req.query
   // this user is coming from cookies
   const user = req.user
   let editUser = {}
@@ -14,6 +14,8 @@ const dashboardController = async (req, res) => {
       user: user,
       action,
       editUser: editUser,
+      l_name,
+      r_name,
     })
   } catch (error) {
     res.status(500).json({ message: 'Internal Server Error' })
@@ -65,15 +67,6 @@ const deleteEmployee = async (req, res) => {
   }
 }
 
-const listDropdown = async (req, res) => {
-  try {
-    const users = await Users.find({})
-    return res.status(200).json({ message: 'success', data: users })
-  } catch (error) {
-    res.status(500).json({ message: 'Internal Server Error' })
-  }
-}
-
 const assignTask = async (req, res) => {
   res.redirect('/user/dashboard')
 }
@@ -84,5 +77,4 @@ module.exports = {
   addEmployee,
   assignTask,
   deleteEmployee,
-  listDropdown,
 }
