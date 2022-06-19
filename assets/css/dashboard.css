@@ -37,15 +37,24 @@
     padding: 20px;
     font-weight: bold;
 }
-.col, .list {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+table {
+    border-collapse: separate;
+    border-spacing:0 10px;
 }
 
-.list {
+table td, table th {
     padding: 20px;
-    margin: 10px 0;
+    text-align: center;
+}
+
+tbody tr {
+    border-radius: 10px;
+}
+
+
+table .list { 
+    margin-bottom: 20px;
     color: #A0D995;
     background-color: #005555;
 }
@@ -113,7 +122,6 @@ select#admin {
     justify-content: space-between;
     align-items: center;
     border: 1px solid #005555;
-    box-shadow: 1px 1px 10px #c3c3c3;
     padding: 10px;
 }
 

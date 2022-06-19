@@ -6,12 +6,14 @@ const {
   addEmployee,
   deleteEmployee,
   assignTask,
+  listUsers,
 } = require('../controllers/userController')
 const authMiddleware = require('../middleware/auth')
 
 router.route('/dashboard').get(authMiddleware, dashboardController)
 router.route('/add').post(addEmployee)
 router.route('/dashboard/:id').get(deleteEmployee)
-// router.route('/assign').get(assignTask)
+router.route('/assign').post(assignTask)
+router.route('/list').get(listUsers)
 
 module.exports = router

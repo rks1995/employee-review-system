@@ -1,4 +1,15 @@
 const Users = require('../models/User')
+const Reviews = require('../models/Reviews')
+
+const listUsers = async (req, res) => {
+  try {
+    const users = await Users.find({})
+    const reviews = await Reviews.find({})
+    res.status(200).json({ users, reviews })
+  } catch (error) {
+    res.status(500).json({ message: 'error' })
+  }
+}
 
 const dashboardController = async (req, res) => {
   const { action, id, l_name, r_name } = req.query
@@ -68,10 +79,41 @@ const deleteEmployee = async (req, res) => {
 }
 
 const assignTask = async (req, res) => {
-  res.redirect('/user/dashboard')
+  try {
+    if (req.xhr) {
+      const { leftEmail, rightEmail } = req.body
+      // get the user to whom the task is assigned and update its task array
+      const assignToUser = await Users.findOne({ email: leftEmail })
+      const assignForUser = await Users.findOne({ email: rightEmail })
+
+      const index = assignToUser.task.indexOf(assignForUser.id)
+
+      if (leftEmail === rightEmail) {
+        // check for same user
+        return res.status(401).json({
+          data: 'you cannot assigned yourself!',
+        })
+      }
+
+      if (index !== -1) {
+        // duplicate user present
+        return res.status(401).json({
+          data: 'cannot assigned same user!',
+        })
+      }
+
+      console.log(assignToUser)
+      assignToUser.task.push(assignForUser.id)
+      assignToUser.save()
+      return res.status(200).json({ data: 'user assigned!' })
+    }
+  } catch (error) {
+    res.status(500).json({ message: 'Internal Server Error' })
+  }
 }
 
 module.exports = {
+  listUsers,
   dashboardController,
   listEmployees,
   addEmployee,

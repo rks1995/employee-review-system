@@ -17,6 +17,15 @@ body {
     background-color: #F9F9F9;
 }
 
+/* ===================== notification message ====================== */
+#message {
+    position: fixed;
+    top: 100px;
+    left: 44%;
+    padding: 10px 30px;
+    display: none;
+}
+
 /* ===================== home page ====================== */
 
 .navbar {

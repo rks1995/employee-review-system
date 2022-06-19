@@ -6,9 +6,9 @@
         <div class="list-users-to hide-dropdown">
             <ul>
                 <% for(let i=0; i<locals.all_users.length; i++) {%> 
-                    <% const {name} = locals.all_users[i] %>
+                    <% const {email, name} = locals.all_users[i] %>
                     <% if(locals.user.name !== name) { %>
-                        <li class="list-name left_name"><%= name %></li>
+                        <li class="list-name left_name"><%= name %> | <%= email %></li>
                     <%}%>
                 <%}%>
             </ul>
@@ -21,9 +21,9 @@
         <div class="list-users-for hide-dropdown">
             <ul>
                 <% for(let i=0; i<locals.all_users.length; i++) {%>
-                    <% const {name} = locals.all_users[i] %>
+                    <% const {email, name} = locals.all_users[i] %>
                     <% if(locals.user.name !== name) { %>
-                        <li class="list-name right_name"><%= name %></li>
+                        <li class="list-name right_name"><%= name %> | <%= email %></li>
                     <%}%>
                 <%}%>
             </ul>

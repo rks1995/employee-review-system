@@ -18,6 +18,18 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  task: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Users',
+    },
+  ],
+  reviews: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Reviews',
+    },
+  ],
 })
 
 module.exports = mongoose.model('Users', userSchema)

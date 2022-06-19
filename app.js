@@ -9,9 +9,10 @@ const port = process.env.PORT || 5000
 
 // use static files
 app.use(express.static('assets'))
+app.use(express.json())
 
 // get information from form data into request body
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
 // set up view engine

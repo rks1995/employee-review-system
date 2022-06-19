@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="/css/dashboard.css" />
 
 <div class="dashboard-container">
+  <div id="message"></div>
     <!-- admin view -->
   <div class="tabs">
       <% if(locals.action === "list" || locals.action === undefined) {%>
@@ -24,18 +25,22 @@
   </div>
 
   <% if(locals.action === "list" || locals.action === undefined) { %>
-    <ul>
-        <li class="list-container">
-            <li class="col">
-                <p>Name</p>
-                <p>Email</p>
-                <p>Password</p>
-                <p>Role</p>
-                <p>Action</p>
-            </li>
+  
+      <table class="list-container">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Password</th>
+              <th>Role</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
             <%- include("partials/_list"); %>
-        </li>
-    </ul> 
+          </tbody>
+      </table>
+ 
   <% } else if(locals.action === "add") { %> 
     <%- include("partials/_update"); %>
   <% } else if(locals.action === "assign") { %> 
