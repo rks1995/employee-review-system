@@ -160,3 +160,31 @@ select#admin {
 .hide-dropdown {
     display: none;
 }
+
+/* ==================== view assign tab ===================== */
+
+.view-task-container {
+    width: 90%;
+    margin-top: 30px;
+}
+
+.list-task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-bottom:10px;
+    background-color: #005555;
+    color: #A0D995;
+}
+
+.list-task span {
+    text-transform: capitalize;
+}
+
+.list-task .unassign-task {
+    padding: 5px 10px;
+    background-color: brown;
+    color: #c3c3c3;
+    font-size: .8rem;
+}

@@ -7,6 +7,7 @@ const {
   deleteEmployee,
   assignTask,
   listUsers,
+  deleteTask,
 } = require('../controllers/userController')
 const authMiddleware = require('../middleware/auth')
 
@@ -15,5 +16,6 @@ router.route('/add').post(addEmployee)
 router.route('/dashboard/:id').get(deleteEmployee)
 router.route('/assign').post(assignTask)
 router.route('/list').get(listUsers)
+router.route('/delete-task').get(deleteTask)
 
 module.exports = router

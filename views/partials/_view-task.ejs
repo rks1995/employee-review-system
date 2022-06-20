@@ -1,0 +1,13 @@
+
+<div class="view-task-container">
+    <% const {all_users} = locals %>
+    <% for(let i=0; i< all_users.length; i++) { %> 
+        <% const {id, task} = all_users[i] %>
+        <% for(let j=0; j < task.length; j++) { %> 
+            <div class="list-task">
+                <span><%= all_users[i].name %></span> assign to <span><%= task[j].name %></span>
+                <a href="/user/delete-task?id1=<%= id %>&id2=<%= task[j].id %>" class="unassign-task">Drop Task</a>
+            </div>
+        <% } %>
+    <% } %>
+</div>

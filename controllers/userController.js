@@ -1,10 +1,11 @@
 const Users = require('../models/User')
 const Reviews = require('../models/Reviews')
+const { mongo } = require('mongoose')
 
 const listUsers = async (req, res) => {
   try {
     const users = await Users.find({})
-    const reviews = await Reviews.find({})
+    const reviews = await Reviews.find({}).populate('to').populate('from')
     res.status(200).json({ users, reviews })
   } catch (error) {
     res.status(500).json({ message: 'error' })
@@ -12,12 +13,12 @@ const listUsers = async (req, res) => {
 }
 
 const dashboardController = async (req, res) => {
-  const { action, id, l_name, r_name } = req.query
+  const { action, id } = req.query
   // this user is coming from cookies
   const user = req.user
   let editUser = {}
   try {
-    const all_users = await Users.find({})
+    const all_users = await Users.find({}).populate('task')
     if (id) editUser = await Users.findById(id)
     res.render('dashboard', {
       title: 'Dashboard',
@@ -25,8 +26,6 @@ const dashboardController = async (req, res) => {
       user: user,
       action,
       editUser: editUser,
-      l_name,
-      r_name,
     })
   } catch (error) {
     res.status(500).json({ message: 'Internal Server Error' })
@@ -102,11 +101,33 @@ const assignTask = async (req, res) => {
         })
       }
 
-      console.log(assignToUser)
       assignToUser.task.push(assignForUser.id)
       assignToUser.save()
       return res.status(200).json({ data: 'user assigned!' })
     }
+  } catch (error) {
+    res.status(500).json({ message: 'Internal Server Error' })
+  }
+}
+
+// ================ delete assign task  ===================== //
+
+const deleteTask = async (req, res) => {
+  const { id1, id2 } = req.query
+  try {
+    const user = await Users.findById(id1)
+
+    const { task } = user
+
+    let newTask = task.filter((item) => {
+      return !item.equals(mongo.ObjectId(id2))
+    })
+
+    console.log(newTask)
+    user.task = newTask
+    user.save()
+
+    return res.redirect('/user/dashboard?action=view_task')
   } catch (error) {
     res.status(500).json({ message: 'Internal Server Error' })
   }
@@ -119,4 +140,5 @@ module.exports = {
   addEmployee,
   assignTask,
   deleteEmployee,
+  deleteTask,
 }
