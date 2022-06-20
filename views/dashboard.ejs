@@ -6,55 +6,73 @@
 <div class="dashboard-container">
   <div id="message"></div>
     <!-- admin view -->
-  <div class="tabs">
-      <% if(locals.action === "list" || locals.action === undefined) {%>
-         <a href="/user/dashboard?action=list" id="employee" class="tab-btn active-tab">Employees</a>
-      <% } else { %> 
-        <a href="/user/dashboard?action=list" id="employee" class="tab-btn">Employees</a>
-      <% } %>
-      <% if(locals.action === "add") {%>
-      <a href="/user/dashboard?action=add" id="add-employee" class="tab-btn active-tab">Add Employee</a>
-      <% } else { %>
-      <a href="/user/dashboard?action=add" id="add-employee" class="tab-btn">Add Employee</a>
-      <% } %>
-      <% if(locals.action === "assign") {%>
-      <a href="/user/dashboard?action=assign" id="assign-task" class="tab-btn active-tab">Assign Task</a>
-      <% } else { %>
-      <a href="/user/dashboard?action=assign" id="assign-task" class="tab-btn">Assign Task</a>
-      <% } %>
-      <% if(locals.action === "view_task") {%>
-      <a href="/user/dashboard?action=view_task" id="view-task" class="tab-btn active-tab">View Task</a>
-      <% } else { %>
-      <a href="/user/dashboard?action=view_task" id="view-task" class="tab-btn">View Task</a>
-      <% } %>
-  </div>
+    <% if(locals.user.isAdmin) { %> 
+       <div class="tabs">
+         <% if(locals.action === "list" || locals.action === undefined) {%>
+         <a href="/user/dashboard?action=list" class="tab-btn active-tab">Employees</a>
+         <% } else { %>
+         <a href="/user/dashboard?action=list" class="tab-btn">Employees</a>
+         <% } %>
+         <% if(locals.action === "add") {%>
+         <a href="/user/dashboard?action=add" class="tab-btn active-tab">Add Employee</a>
+         <% } else { %>
+         <a href="/user/dashboard?action=add" class="tab-btn">Add Employee</a>
+         <% } %>
+         <% if(locals.action === "assign") {%>
+         <a href="/user/dashboard?action=assign" class="tab-btn active-tab">Assign Task</a>
+         <% } else { %>
+         <a href="/user/dashboard?action=assign" class="tab-btn">Assign Task</a>
+         <% } %>
+         <% if(locals.action === "view_task") {%>
+         <a href="/user/dashboard?action=view_task" class="tab-btn active-tab">View Task</a>
+         <% } else { %>
+         <a href="/user/dashboard?action=view_task" class="tab-btn">View Task</a>
+         <% } %>
+       </div>
 
-  <% if(locals.action === "list" || locals.action === undefined) { %>
-  
-      <table class="list-container">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Password</th>
-              <th>Role</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <%- include("partials/_list"); %>
-          </tbody>
-      </table>
- 
-  <% } else if(locals.action === "add") { %> 
-    <%- include("partials/_update"); %>
-  <% } else if(locals.action === "assign") { %> 
-     <%- include("partials/_assign"); %>
-  <% } else if(locals.action === "view_task") { %>
-    <%- include("partials/_view-task"); %>
-  <% } %>
+       <% if(locals.action === "list" || locals.action === undefined) { %>
 
-   <!-- Employee view -->
+       <table class="list-container">
+         <thead>
+           <tr>
+             <th>Name</th>
+             <th>Email</th>
+             <th>Password</th>
+             <th>Role</th>
+             <th>Action</th>
+           </tr>
+         </thead>
+         <tbody>
+           <%- include("partials/_list"); %>
+         </tbody>
+       </table>
+
+       <% } else if(locals.action === "add") { %>
+       <%- include("partials/_update"); %>
+       <% } else if(locals.action === "assign") { %>
+       <%- include("partials/_assign"); %>
+       <% } else if(locals.action === "view_task") { %>
+       <%- include("partials/_view-task"); %>
+       <% } %>
+    <% } else { %>
+      <!-- Employee view -->
+      <div class="tabs">
+         <% if(locals.action === "to_review" || locals.action === undefined) {%>
+          <a href="/user/dashboard?action=to_review" class="tab-btn active-tab">To Review</a>
+         <% } else { %>
+          <a href="/user/dashboard?action=to_review" class="tab-btn">To Review</a>
+         <% } %>
+         <% if(locals.action === "my_reviews") {%>
+          <a href="/user/dashboard?action=my_reviews" class="tab-btn active-tab">My Reviews</a>
+         <% } else { %>
+          <a href="/user/dashboard?action=my_reviews" class="tab-btn">My Reviews</a>
+         <% } %>
+      </div>
+      
+      <% if(locals.action === "to_review" || locals.action === undefined) { %> 
+        <%- include("partials/_to-review"); %>  
+      <% } %>
+    <% } %>
 </div>
 
 <script src="/js/script.js"></script>

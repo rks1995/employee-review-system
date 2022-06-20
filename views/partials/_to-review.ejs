@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/css/reviews.css">
+
+<div class="review-list">
+    <% let reviewPresent = false %>
+    <% for(let j=0; j< locals.all_users.length; j++) { %>
+        <% if(locals.user.id === locals.all_users[j].id) { %> 
+            <% const {task} = locals.all_users[j] %>
+            <% if(task.length > 0) { %>
+                <% reviewPresent = true %>
+                <% for(let i = 0; i < task.length; i++) {%>
+                    <form action="/user/add-reviews" method="post">
+                        <p class="reviewer">To: <%= task[i].name %></p>
+                        <div class="text-area">
+                            <textarea name="content" cols="30" rows="5" placeholder="Write Feedback"></textarea>
+                            <button type="submit" class="feedback-btn">Submit</button>
+                        </div>
+                    </form>
+                <% } %>
+            <% } %>
+        <% } %>
+    <% } %>
+    <% if(!reviewPresent) { %>
+        <h2>No person to review :)</h2>
+    <% } %>
+</div>

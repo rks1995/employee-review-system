@@ -1,0 +1,24 @@
+
+.review-list {
+    max-width: 350px;
+    margin-top: 50px;
+}
+
+.review-list .reviewer {
+    color: #005555;
+    margin: 10px 0;
+}
+
+.review-list .text-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-area .feedback-btn {
+    padding: 10px;
+    border: none;
+    color: #A0D995;
+    background-color: #005555;
+    cursor: pointer;
+}
