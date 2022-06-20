@@ -81,11 +81,13 @@ const assignTask = async (req, res) => {
   try {
     if (req.xhr) {
       const { leftEmail, rightEmail } = req.body
-      // get the user to whom the task is assigned and update its task array
-      const assignToUser = await Users.findOne({ email: leftEmail })
-      const assignForUser = await Users.findOne({ email: rightEmail })
 
-      const index = assignToUser.task.indexOf(assignForUser.id)
+      if (!leftEmail || !rightEmail) {
+        // check for empty field
+        return res.status(401).json({
+          data: 'Invalid Assignment!',
+        })
+      }
 
       if (leftEmail === rightEmail) {
         // check for same user
@@ -93,6 +95,12 @@ const assignTask = async (req, res) => {
           data: 'you cannot assigned yourself!',
         })
       }
+
+      // get the user to whom the task is assigned and update its task array
+      const assignToUser = await Users.findOne({ email: leftEmail })
+      const assignForUser = await Users.findOne({ email: rightEmail })
+
+      const index = assignToUser.task.indexOf(assignForUser.id)
 
       if (index !== -1) {
         // duplicate user present
@@ -111,7 +119,6 @@ const assignTask = async (req, res) => {
 }
 
 // ================ delete assign task  ===================== //
-
 const deleteTask = async (req, res) => {
   const { id1, id2 } = req.query
   try {
@@ -123,7 +130,6 @@ const deleteTask = async (req, res) => {
       return !item.equals(mongo.ObjectId(id2))
     })
 
-    console.log(newTask)
     user.task = newTask
     user.save()
 

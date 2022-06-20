@@ -100,6 +100,10 @@ form .form {
      color: #A0D995;
  }
 
+ .form p {
+     color: #c3c3c3;
+ }
+
  .form p > a {
      color: #A0D995;
  }
