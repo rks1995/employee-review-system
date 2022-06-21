@@ -1,4 +1,3 @@
-require('dotenv').config()
 const Users = require('../models/User')
 const jwt = require('jsonwebtoken')
 
@@ -62,7 +61,7 @@ const loginUser = async (req, res) => {
     }
 
     const { id, name, isAdmin } = user
-    const token = jwt.sign({ id, name, isAdmin }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ id, name, isAdmin }, 'somesecret', {
       expiresIn: '1h',
     })
 
