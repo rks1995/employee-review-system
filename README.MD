@@ -2,9 +2,9 @@
 
 ## Description
 
-An app where admin and employees are handled seperately, Admin has the priviledge to add/delete/update the
-employee and also assign task to an employee to perform in some other employee's performance (give feedback).
-Employee on the other can only submit feedback for an employee to whom the task has been assigned for by the admin.
+An app where admin and employees are handled seperately, Admin has the privilege to add/delete/update the
+employee and also assign task to an employee to perform in some other employees performance (give feedback).
+Employees on the other can only submit feedback for an employee to whom the task has been assigned by the admin.
 
 ## Features
 
