@@ -10,6 +10,8 @@
                 <% for(let i = 0; i < task.length; i++) {%>
                     <form action="/user/add-reviews" method="post">
                         <p class="reviewer">To: <%= task[i].name %></p>
+                        <input type="hidden" name="from" value="<%= locals.user.id %>">
+                        <input type="hidden" name="to" value="<%= task[i].id %>">
                         <div class="text-area">
                             <textarea name="content" cols="30" rows="5" placeholder="Write Feedback"></textarea>
                             <button type="submit" class="feedback-btn">Submit</button>

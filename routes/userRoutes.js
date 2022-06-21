@@ -9,6 +9,7 @@ const {
   listUsers,
   deleteTask,
 } = require('../controllers/userController')
+const { addReview } = require('../controllers/reviewController')
 const authMiddleware = require('../middleware/auth')
 
 router.route('/dashboard').get(authMiddleware, dashboardController)
@@ -17,5 +18,6 @@ router.route('/dashboard/:id').get(deleteEmployee)
 router.route('/assign').post(assignTask)
 router.route('/list').get(listUsers)
 router.route('/delete-task').get(deleteTask)
+router.route('/add-reviews').post(addReview)
 
 module.exports = router
