@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="/css/reviews.css">
+
+<ul>
+    <% const {reviews} = locals %>
+    <% for(let i=0; i < reviews.length; i++) { %> 
+        <% if(locals.user.id === reviews[i].to.id) { %> 
+            <li class="list-review">
+                <span>From: <%= reviews[i].from.name %></span>
+                <p class="review"><%= reviews[i].reviews %></p>
+            </li>    
+        <% } %>    
+    <% } %>
+</ul>

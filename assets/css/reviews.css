@@ -1,4 +1,4 @@
-
+/* ======================== review feedback ===================== */
 .review-list {
     max-width: 350px;
     margin-top: 50px;
@@ -21,4 +21,19 @@
     color: #A0D995;
     background-color: #005555;
     cursor: pointer;
+}
+
+/* ======================== my reviews ===================== */
+.list-review {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #005555;
+    color: #A0D995;
+    text-transform: capitalize;
+}
+
+.list-review .review {
+    font-size: 1.25rem;
+    color: #F8CB2E;
+    margin-top: 5px;
 }

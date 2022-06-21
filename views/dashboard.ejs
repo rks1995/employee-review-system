@@ -71,7 +71,9 @@
       
       <% if(locals.action === "to_review" || locals.action === undefined) { %> 
         <%- include("partials/_to-review"); %>  
-      <% } %>
+      <% } else if(locals.action === "my_reviews") { %> 
+        <%- include("partials/_my-reviews") %>
+        <% } %>
     <% } %>
 </div>
 

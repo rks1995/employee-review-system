@@ -19,10 +19,12 @@ const dashboardController = async (req, res) => {
   let editUser = {}
   try {
     const all_users = await Users.find({}).populate('task')
+    const reviews = await Reviews.find({}).populate('to').populate('from')
     if (id) editUser = await Users.findById(id)
     res.render('dashboard', {
       title: 'Dashboard',
       all_users: all_users,
+      reviews,
       user: user,
       action,
       editUser: editUser,
