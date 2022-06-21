@@ -1,7 +1,7 @@
 <ul class="review-container">
     <% const {reviews} = locals %>
     <% for(let i=0; i < reviews.length; i++) { %> 
-        <% if(locals.user.id === reviews[i].to.id) { %> 
+        <% if(reviews[i].to !== null && locals.user.id === reviews[i].to.id) { %> 
             <li class="list-review">
                 <span>From: <%= reviews[i].from.name %></span>
                 <p class="review"><%= reviews[i].reviews %></p>

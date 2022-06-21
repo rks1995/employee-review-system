@@ -70,6 +70,8 @@ const addEmployee = async (req, res) => {
 const deleteEmployee = async (req, res) => {
   try {
     const user = await Users.findByIdAndDelete(req.params.id)
+    await Reviews.deleteMany({ from: mongo.ObjectId(req.params.id) })
+
     res.redirect('back')
   } catch (error) {
     res.status(500).json({ message: 'Internal Server Error' })
