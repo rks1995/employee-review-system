@@ -62,7 +62,7 @@ clone the repository by git clone https://github.com/rks1995/employee-review-sys
 cd employee-review-system
 run npm install & npm start
 
-### admin login(very important❕)
+### admin login(very important ❗️)
 
 `email: ratna@gmail.com password: 1234`
 
