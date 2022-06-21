@@ -24,7 +24,7 @@ Employee on the other can only submit feedback for an employee to whom the task 
 
 ### view-employess
 
-![alt]('./assets/img/Admin-view.png')
+![alt]('assets/img/Admin-view.png')
 
 ### Add-employess
 
@@ -62,7 +62,9 @@ clone the repository by git clone https://github.com/rks1995/employee-review-sys
 cd employee-review-system
 run npm install & npm start
 
-`admin login(very important❕) email: ratna@gmail.com password: 1234`
+### admin login(very important❕)
+
+`email: ratna@gmail.com password: 1234`
 
 ## Folder structure
 
