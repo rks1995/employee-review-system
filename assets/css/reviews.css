@@ -24,9 +24,17 @@
 }
 
 /* ======================== my reviews ===================== */
+.review-container {
+    margin-top: 50px;
+}
+
 .list-review {
-    margin: 30px 0;
-    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    padding: 10px 20px;
+    width: 90%;
     background-color: #005555;
     color: #A0D995;
     text-transform: capitalize;
@@ -36,4 +44,9 @@
     font-size: 1.25rem;
     color: #F8CB2E;
     margin-top: 5px;
+}
+
+.list-review .delete-review-btn {
+    padding: 5px;
+    color: #ED4965;
 }

@@ -2,6 +2,7 @@
     <h1>Welcome to the dashboard <%= user.name %></h1>
 <% } %> -->
 <link rel="stylesheet" href="/css/dashboard.css" />
+<link rel="stylesheet" href="/css/reviews.css">
 
 <div class="dashboard-container">
   <div id="message"></div>
@@ -27,6 +28,10 @@
          <a href="/user/dashboard?action=view_task" class="tab-btn active-tab">View Task</a>
          <% } else { %>
          <a href="/user/dashboard?action=view_task" class="tab-btn">View Task</a>
+         <% } if(locals.action === "view_reviews") {%>
+         <a href="/user/dashboard?action=view_reviews" class="tab-btn active-tab">View Reviews</a>
+         <% } else { %>
+         <a href="/user/dashboard?action=view_reviews" class="tab-btn">View Reviews</a>
          <% } %>
        </div>
 
@@ -53,6 +58,8 @@
        <%- include("partials/_assign"); %>
        <% } else if(locals.action === "view_task") { %>
        <%- include("partials/_view-task"); %>
+       <% } else if(locals.action === "view_reviews") { %>
+       <%- include("partials/_view-reviews"); %>
        <% } %>
     <% } else { %>
       <!-- Employee view -->

@@ -141,6 +141,17 @@ const deleteTask = async (req, res) => {
   }
 }
 
+// ================ delete reviews  ===================== //
+
+const deleteReview = async (req, res) => {
+  try {
+    const review = await Reviews.findByIdAndDelete(req.params.id)
+    return res.redirect('back')
+  } catch (error) {
+    res.status(500).json({ message: 'Internal Server Error' })
+  }
+}
+
 module.exports = {
   listUsers,
   dashboardController,
@@ -149,4 +160,5 @@ module.exports = {
   assignTask,
   deleteEmployee,
   deleteTask,
+  deleteReview,
 }

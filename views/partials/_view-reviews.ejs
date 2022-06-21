@@ -1,0 +1,12 @@
+<ul class="review-container">
+    <% const {reviews} = locals %>
+    <% for(let i=0; i < reviews.length; i++) { %>
+    <li class="list-review">
+        <div class="left-review">
+            <span>From: <%= reviews[i].from.name %> | To: <%= reviews[i].to.name %></span>
+            <p class="review"><%= reviews[i].reviews %></p>
+        </div>
+        <a class="delete-review-btn" href="/user/delete-review/<%= reviews[i].id %>"><i class="fa-solid fa-trash"></i></a>
+    </li>
+    <% } %>
+</ul>

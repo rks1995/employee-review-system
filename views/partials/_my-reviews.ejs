@@ -1,6 +1,4 @@
-<link rel="stylesheet" href="/css/reviews.css">
-
-<ul>
+<ul class="review-container">
     <% const {reviews} = locals %>
     <% for(let i=0; i < reviews.length; i++) { %> 
         <% if(locals.user.id === reviews[i].to.id) { %> 
