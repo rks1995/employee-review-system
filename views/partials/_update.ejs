@@ -1,7 +1,8 @@
 <form class="form" action="/user/add" method="post">
     <% if(Object.keys(locals.editUser).length !== 0) { %>
-        <% const {name, email, password, isAdmin} = locals.editUser %>
+        <% const {id, name, email, password, isAdmin} = locals.editUser %>
         <div class="left">
+            <input type="hidden" name="id" value="<%= id %>">
             <input class="input-field" type="text" name="name" value="<%= name %>" placeholder="name">
             <input class="input-field" type="email" name="email" value="<%= email %>" placeholder="email" required>
         </div>

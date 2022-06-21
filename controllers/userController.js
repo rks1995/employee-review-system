@@ -41,15 +41,11 @@ const listEmployees = async (req, res) => {
 
 // ================ add & update employee ===================== //
 const addEmployee = async (req, res) => {
-  const { name, email, password, admin } = req.body
+  const { id, name, email, password, admin } = req.body
   try {
-    const user = await Users.findOne({ email })
-    if (user) {
-      if (!user.id) {
-        return res.status(401).json({ message: 'email already exist!' })
-      }
-      //update the user
-      await Users.findByIdAndUpdate(user.id, {
+    if (id) {
+      // update user
+      await Users.findByIdAndUpdate(id, {
         name,
         email,
         password,
@@ -57,6 +53,7 @@ const addEmployee = async (req, res) => {
       })
       return res.redirect('back')
     }
+
     await Users.create({
       name,
       email,
