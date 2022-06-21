@@ -1,7 +1,7 @@
 <ul class="review-container">
     <% const {reviews} = locals %>
     <% for(let i=0; i < reviews.length; i++) { %>
-    <li class="list-review">
+    <li class="list-review admin-review-list">
         <div class="left-review">
             <span>From: <%= reviews[i].from.name %> | To: <%= reviews[i].to.name %></span>
             <p class="review"><%= reviews[i].reviews %></p>
