@@ -24,15 +24,15 @@ Employee on the other can only submit feedback for an employee to whom the task 
 
 ### view-employess
 
-![alt]('assets/img/Admin-view.png')
+![alt](assets/img/Admin-view.png)
 
 ### Add-employess
 
-![alt]('./assets/img/Add-employee.png')
+![alt](assets/img/Add-employee.png)
 
 ### update-employess
 
-![alt]('./assets/img/update-employee.png')
+![alt](assets/img/update-employee.png)
 
 ### assign-task
 
