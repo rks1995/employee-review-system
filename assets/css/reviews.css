@@ -25,7 +25,7 @@
 
 /* ======================== my reviews ===================== */
 .review-container {
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 .admin-review-list {
@@ -37,7 +37,7 @@
 .list-review {
     margin: 20px 0;
     padding: 10px 20px;
-    width: 90%;
+    width: 80%;
     background-color: #005555;
     color: #A0D995;
     text-transform: capitalize;
@@ -52,4 +52,22 @@
 .list-review .delete-review-btn {
     padding: 5px;
     color: #ED4965;
+}
+
+@media screen and (max-width: 500px) {
+    .review-list {
+        margin: 40px auto;
+    }
+    .review-container {
+        padding: 10px;
+    }
+    .list-review {
+        width: 100%;
+        margin: 20px 0;
+        padding: 10px 20px;
+        font-size: .85rem;
+        background-color: #005555;
+        color: #A0D995;
+        text-transform: capitalize;
+    }
 }

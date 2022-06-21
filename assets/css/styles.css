@@ -82,7 +82,7 @@ body {
 /* ===================== form styles ====================== */
 
 form .form {
-    width: 30%;
+    width: 350px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -132,3 +132,5 @@ form .form {
     justify-content: center;
     align-items: center;
 }
+
+

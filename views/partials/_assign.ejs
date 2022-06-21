@@ -1,33 +1,35 @@
 
 <div class="assign-task-container">
-    <div class="left">
-        <p class="assign-input-field"><span id="left-para">Assign To | </span><a href="/user/listdropdown"
-                class="dropdown"><i class="fa-solid fa-caret-down assign-to"></i></a></p>
-        <div class="list-users-to hide-dropdown">
-            <ul>
-                <% for(let i=0; i<locals.all_users.length; i++) {%> 
+    <div class="inner-task-container">
+        <div class="left">
+            <p class="assign-input-field"><span id="left-para">Assign To | </span><a href="/user/listdropdown"
+                    class="dropdown"><i class="fa-solid fa-caret-down assign-to"></i></a></p>
+            <div class="list-users-to hide-dropdown">
+                <ul>
+                    <% for(let i=0; i<locals.all_users.length; i++) {%>
                     <% const {email, name, isAdmin} = locals.all_users[i] %>
                     <% if(locals.user.name !== name && !isAdmin) { %>
-                        <li class="list-name left_name"><%= name %> | <%= email %></li>
+                    <li class="list-name left_name"><%= name %> | <%= email %></li>
                     <%}%>
                 <%}%>
-            </ul>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="right">
-        <p class="assign-input-field"><span id="right-para">Assign For |</span><a href="/user/listdropdown"
-        class="dropdown"><i
-        class="fa-solid fa-caret-down assign-for"></i></a></p>
-        <div class="list-users-for hide-dropdown">
-            <ul>
-                <% for(let i=0; i<locals.all_users.length; i++) {%>
+        <div class="right">
+            <p class="assign-input-field"><span id="right-para">Assign For |</span><a href="/user/listdropdown"
+                    class="dropdown"><i class="fa-solid fa-caret-down assign-for"></i></a></p>
+            <div class="list-users-for hide-dropdown">
+                <ul>
+                    <% for(let i=0; i<locals.all_users.length; i++) {%>
                     <% const {email, name, isAdmin} = locals.all_users[i] %>
                     <% if(locals.user.name !== name && !isAdmin) { %>
-                        <li class="list-name right_name"><%= name %> | <%= email %></li>
+                    <li class="list-name right_name"><%= name %> | <%= email %></li>
                     <%}%>
                 <%}%>
-            </ul>
+                </ul>
+            </div>
         </div>
     </div>
+    
     <button class="assign-btn">Assign</button>
 </div>

@@ -1,6 +1,5 @@
 
 /* ===================== dashboard style admin view ==================== */
-
 .dashboard-container {
     max-width: 700px;
     margin: 100px auto;
@@ -11,6 +10,16 @@
     color: #005555;
     border: 1px solid #6CC4A1;
     margin-right:20px;
+}
+
+@media screen and (max-width: 500px) {
+    .dashboard-container {
+        margin: 40px auto;
+    }
+    .tab-btn {
+        display: block;
+        margin: 10px;
+    }
 }
 
 .tab-btn:hover {
@@ -63,6 +72,16 @@ table .list {
     color: #F94C66;
 }
 
+@media screen and (max-width: 500px) {
+    .list-container {
+        font-size: .65rem;
+        padding: 0 5px;
+    }
+    table td, table th {
+        padding: 10px;
+    }
+}
+
 /* ==================== update tab ===================== */
 
 form.form {
@@ -72,13 +91,12 @@ form.form {
 form.form, .left, .right {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 10px;
     padding: 30px 0 30px;
 }
 
 .left, .right {
-     width: 100%;
     flex-direction: column;
     align-items: center;
 }
@@ -86,6 +104,21 @@ form.form, .left, .right {
 .left .input-field, .right .label, .input-field {
     border: 1px solid teal;
 }
+
+@media screen and (max-width: 500px) {
+    form.form{
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+    .left, .right {
+        padding: 0 10px;
+        flex-direction: row;
+    }
+}
+
 .label {
     display: flex;
 }
@@ -109,17 +142,27 @@ select#admin {
 /* ==================== assign tab ===================== */
 
 .assign-task-container {
-    width: 100%;
-    margin-top: 60px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    width: 100%;
+    height: 200px;
+    margin-top: 60px;
     gap: 10px;
     align-items: center;
     position: relative;
 }
 
-.assign-input-field {
+.inner-task-container {
     width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
+.assign-input-field {
+    width: 250px;
     color: gray;
     display: flex;
     justify-content: space-between;
@@ -161,6 +204,22 @@ select#admin {
     display: none;
 }
 
+@media screen and (max-width: 500px) {
+    .assign-input-field {
+        font-size: .85rem;
+        width: 150px;
+        color: gray;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #005555;
+        padding: 10px;
+    }
+    .list-users-to, .list-users-for {
+        top: 36px;
+    }
+}
+
 /* ==================== view assign tab ===================== */
 
 .view-task-container {
@@ -187,4 +246,16 @@ select#admin {
     background-color: brown;
     color: #c3c3c3;
     font-size: .8rem;
+}
+
+@media screen and (max-width: 500px) {
+    .view-task-container {
+        width: 100%;
+        padding: 10px;
+        margin-top: 40px;
+    }
+
+    .list-task {
+        padding: 10px;
+    }
 }
