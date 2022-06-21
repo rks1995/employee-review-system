@@ -36,25 +36,25 @@ Employee on the other can only submit feedback for an employee to whom the task 
 
 ### assign-task
 
-![alt]('./assets/img/Assign-task.png')
+![alt](assets/img/Assign-task.png)
 
 ### view-task
 
-![alt]('./assets/img/view-task.png')
+![alt](assets/img/view-task.png)
 
 ### view-reviews
 
-![alt]('./assets/img/view-all-reviews.png')
+![alt](assets/img/view-all-reviews.png)
 
 ## Employee view
 
 ### employee-view
 
-![alt]('./assets/img/employee-view.png')
+![alt](assets/img/employee-view.png)
 
 ### my-reviews
 
-![alt]('./assets/img/my-review-employee.png')
+![alt](assets/img/my-review-employee.png)
 
 ## How to install and run in your local machine
 
